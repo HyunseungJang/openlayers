@@ -3,10 +3,10 @@ function goHome() {
 	location.replace('/mymap');
 }
 function goXdworld() {
-	location.href="xdworld.do";
+	location.href="xdworld";
 }
 function goOpenLayers() {
-	location.href="openlayers.do";
+	location.href="openlayers";
 }
 
 

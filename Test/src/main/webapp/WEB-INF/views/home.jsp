@@ -3,22 +3,123 @@
 <%@ page session="false" %>
 <!doctype html>
 <html>
-<meta charset='utf-8'>
 <head>
+	<meta charset='utf-8'>
+	
+	<!-- 모바일 반응형 동작 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- CSS -->
 	<link rel="stylesheet" href="resources/css/xdworld.css"/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	
+	<!-- favicon.ico -->
+    <link rel="shortcut icon" href="#">
+	
+	<!-- fontawesome icon -->
+	<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 	<title>MyMap</title>
-	<style>
-		body {
-			background-image: url( "resources/images/galaxy.gif" );
-		}
-	</style>
 </head>
-<body>
-	<div class="mapLoad">
-		<button onclick="goXdworld();">XDWORLD 로딩</button>
-		<button onclick="goOpenLayers();">OpenLayers 로딩</button>
+<body class="d-flex h-100 text-center text-bg-dark">
+	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+		<div class="container">
+		  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+		    <a href="/mymap" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+		      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+		      <span id="mainHeader" class="fs-4" style="color:white">XDWorld & OpenLayers Project</span>
+		    </a>
+		
+		    <ul class="nav nav-pills">
+		      <li class="nav-item"><a href="/mymap" class="nav-link active" aria-current="page">Home</a></li>
+		      <li class="nav-item"><a href="/mymap/xdworld" class="nav-link">XDWorld</a></li>
+		      <li class="nav-item"><a href="/mymap/openlayers" class="nav-link">OpenLayers</a></li>
+		      <li class="nav-item"><a href="/mymap/qna" class="nav-link">QnA</a></li>
+		      <li class="nav-item"><a href="/mymap/login" class="nav-link">Login</a></li>
+		    </ul>
+		  </header>
+		</div>
+		
+		<main class="px-3">
+			<div id="IconList" class="row">
+				<div id="xdwIcon" class="mapLoad col">
+					<i class="mapIcon fa-brands fa-unity fa-5x" onclick="goXdworld()" style="color:#C0C0C0"></i>
+					<button type="button" id="xdwBtn" class="mapBtn" onclick="goXdworld()">XDWorld</button>
+				</div>
+				<div id="olIcon" class="mapLoad col">
+					<i class="mapIcon fa-solid fa-layer-group fa-5x" onclick="goOpenLayers()" style="color:#C0C0C0"></i>
+					<button type="button" id="olBtn" class="mapBtn" onclick="goOpenLayers()">OpenLayers</button>
+				</div>
+			</div>
+		</main>
+	
+		<div class="container">
+		  <footer class="py-5">
+		    <div class="row">
+		      <div class="col-6 col-md-2 mb-3">
+		        <h5>Section</h5>
+		        <ul class="nav flex-column">
+		          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+		          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+		          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+		          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+		          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+		        </ul>
+		      </div>
+		
+		      <div class="col-6 col-md-2 mb-3">
+		        <h5>Section</h5>
+		        <ul class="nav flex-column">
+		          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+		          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+		          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+		          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+		          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+		        </ul>
+		      </div>
+		
+		      <div class="col-6 col-md-2 mb-3">
+		        <h5>Section</h5>
+		        <ul class="nav flex-column">
+		          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+		          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+		          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+		          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+		          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+		        </ul>
+		      </div>
+		
+		      <div class="col-md-5 offset-md-1 mb-3">
+		        <form>
+		          <h5>Subscribe to our newsletter</h5>
+		          <p>Monthly digest of what's new and exciting from us.</p>
+		          <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+		            <label for="newsletter1" class="visually-hidden">Email address</label>
+		            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+		            <button class="btn btn-primary" type="button">Subscribe</button>
+		          </div>
+		        </form>
+		      </div>
+		    </div>
+		
+		    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+		      <p>&copy; 2023 hsj, Inc. All rights reserved.</p>
+		      <ul class="list-unstyled d-flex">
+		        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+		        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+		        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+		      </ul>
+		    </div>
+		 </footer>
+		</div>
 	</div>
+	
+	<!-- JQUERY -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<!-- JS -->
 	<script src="resources/js/page.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+	
 </body>
 </html>

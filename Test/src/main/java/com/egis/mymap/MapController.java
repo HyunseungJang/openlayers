@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class MapController {
 	
-	@RequestMapping(value = "/xdworld.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/xdworld", method = RequestMethod.GET)
 	public String xdworld(Locale locale, Model model) {
 		
 		
@@ -22,11 +22,18 @@ public class MapController {
 	}
 	
 	@CrossOrigin(origins = "*")
-	@RequestMapping(value = "/openlayers.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/openlayers", method = RequestMethod.GET)
 	public String openLayers(Locale locale, Model model) {
 		
 		
 		return "openlayers";
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login(Locale locale, Model model) {
+		
+		
+		return "login";
 	}
 
 }
