@@ -26,6 +26,4 @@
 	<!-- 어노테이션 @이 사용할 영역(패키지) 지정 -->
 	<context:component-scan base-package="com.egis.mymap" />
 	
-	
-	
 </beans:beans>

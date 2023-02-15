@@ -37,5 +37,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/EGIS/setup/postgresql-42.2.20.jar"/>
+	<classpathentry kind="lib" path="C:/EGIS/setup/spring-data-elasticsearch-4.1.15.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
