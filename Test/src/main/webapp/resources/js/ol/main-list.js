@@ -23,7 +23,7 @@ var vwSrch = function(){
 			error: function(xhr, stat, err) {}
 		});
 	}
- 
+
 	var move = function(x,y){
 		map.getView().setCenter([ x, y ]); // move map
 		map.getView().setZoom(15); // set zoom level
