@@ -62,3 +62,22 @@ main.form-signin.w-100.m-auto {
 	white-space: nowrap;
 	-webkit-overflow-scrolling: touch;
 }
+
+.form-floating {
+    display: flex;
+}
+
+.form-floating>.form-control-plaintext:focus, .form-floating>.form-control-plaintext:not(:placeholder-shown), .form-floating>.form-control:focus, .form-floating>.form-control:not(:placeholder-shown) {
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+}
+
+.checkbox.mb-3 {
+    padding-top: 1rem;
+}
+
+#floatingInput {
+    /* width: 15rem; */
+    /* height: 3rem; */
+    margin-bottom: 1rem;
+}

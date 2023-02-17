@@ -23,31 +23,25 @@ public class BoardController {
 	
 	// 게시판 글 작성 화면
 	@RequestMapping(value = "/writeView", method = RequestMethod.GET)
-	public void writeView() throws Exception{
+	public void writeView() throws Exception{		// public void를 사용하면 return을 써주지 않아도 됨
+
 		logger.info("writeView");
-		
 	}
 	
 	// 게시판 글 작성
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String write(BoardVO boardVO) throws Exception{
-		logger.info("write");
 		
 		service.write(boardVO);
 		
-		return "redirect:/";
+		return "redirect:/list";		// 데이터 재조회를 하기 위해서 redirect:로 url참조
 	}
 	
 	// 게시판 목록 조회
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String list(Model model) throws Exception{
-		logger.info("list");
-		
+	public void list(Model model) throws Exception{
+
 		model.addAttribute("list",service.list());
-		
-		
-		return "list";
-		
 	}
 	
 }

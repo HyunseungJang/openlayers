@@ -20,7 +20,7 @@
 			<hr />
 			
 			<section id="container">
-				<form role="form" method="post" action="/mymap/writeView">
+				<form role="form" method="post" action="/mymap/write">
 					<table>
 						<tbody>
 							<tr>

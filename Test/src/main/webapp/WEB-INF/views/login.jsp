@@ -36,7 +36,7 @@
 		      <li class="nav-item"><a href="/mymap" class="nav-link active" aria-current="page">Home</a></li>
 		      <li class="nav-item"><a href="/mymap/xdworld" class="nav-link">XDWorld</a></li>
 		      <li class="nav-item"><a href="/mymap/openlayers" class="nav-link">OpenLayers</a></li>
-		      <li class="nav-item"><a href="/mymap/qna" class="nav-link">QnA</a></li>
+		      <li class="nav-item"><a href="/mymap/list" class="nav-link">QnA</a></li>
 		      <li class="nav-item"><a href="/mymap/login" class="nav-link">Login</a></li>
 		    </ul>
 		  </header>
@@ -48,11 +48,9 @@
 		
 		    <div class="form-floating">
 		      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-		      <label for="floatingInput">Email address</label>
 		    </div>
 		    <div class="form-floating">
 		      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-		      <label for="floatingPassword">Password</label>
 		    </div>
 		
 		    <div class="checkbox mb-3">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page session="false" %>
 <!doctype html>
 <html>
@@ -11,6 +12,7 @@
 		
 		<!-- CSS -->
 		<link rel="stylesheet" href="resources/css/xdworld.css"/>
+		<link rel="stylesheet" href="resources/css/list.css"/>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 		
 		<!-- favicon.ico -->
@@ -20,7 +22,7 @@
 		<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 		<title>MyMap</title>
 	</head>
-		<body class="d-flex h-100 text-center text-bg-dark">
+	<body class="d-flex h-100 text-center text-bg-dark">
 		<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 			<div class="container">
 			  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
@@ -42,33 +44,35 @@
 			<main class="px-3">
 				<div id="root">
 					<header>
-						<h1> 게시판</h1>
+						<h1> QnA </h1>
 					</header>
-					<hr />
-					 
-					<nav>
-					  홈 - 글 작성
-					</nav>
-					<hr />
-					
-					<section id="container">
-						<form role="form" method="post" action="/write">
-							<table>
-								<tr><th>번호</th><th>제목</th><th>작성자</th><th>등록일</th></tr>
-								
-								<c:forEach items="${list}" var = "list">
-									<tr>
-										<td><c:out value="${list.bno}" /></td>
-										<td><c:out value="${list.title}" /></td>
-										<td><c:out value="${list.writer}" /></td>
-										<td><fmt:formatDate value="${list.regdate}" pattern="yyyy-MM-dd"/></td>
-									</tr>
-								</c:forEach>
-								
-							</table>
-						</form>
-					</section>
-					<hr />
+					<!-- board list area -->
+				    <div id="board-list" class="container">
+     					<section id="container" >
+							<form role="form" method="post" action="/write">
+					            <table class="board-table">
+					                <thead>
+					                <tr>
+					                    <th scope="col" class="th-bno">번호</th>
+					                    <th scope="col" class="th-title">제목</th>
+					                    <th scope="col" class="th-writer">작성자</th>
+					                    <th scope="col" class="th-regdate">등록일</th>
+					                </tr>
+					                </thead>
+					                <tbody>
+					                <c:forEach items="${list}" var = "list">
+										<tr>
+											<td><c:out value="${list.bno}" /></td>
+											<td><c:out value="${list.title}" /></td>
+											<td><c:out value="${list.writer}" /></td>
+											<td><fmt:formatDate value="${list.regdate}" pattern="yyyy-MM-dd"/></td>
+										</tr>
+									</c:forEach>
+					                </tbody>
+					            </table>
+       						</form>
+						</section>
+			        </div>
 				</div>
 			</main>
 		
