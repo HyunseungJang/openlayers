@@ -1,4 +1,4 @@
-package com.egis.mymap;
+package com.egis.controller;
 
 import javax.inject.Inject;
 
