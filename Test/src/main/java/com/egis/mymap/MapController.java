@@ -33,7 +33,7 @@ public class MapController {
 	public String login(Locale locale, Model model) {
 		
 		
-		return "login";
+		return "login.tiles";
 	}
 
 }

@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"  %>
 <!DOCTYPE html>
 <html>
@@ -16,6 +17,8 @@
 		<!-- favicon.ico -->
 	    <link rel="shortcut icon" href="#">
 		
+		<!-- fontawesome icon -->
+		<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 		<title>MyMap</title>
 	</head>
 	<body class="d-flex h-100 text-center text-bg-dark">
@@ -25,28 +28,7 @@
 					<tiles:insertAttribute name="header"/>
 				</header>
 				<main>
-					<div id="root">
-						<h1> QnA </h1>
-						<section id="container">
-						  <form role="form" method="post" action="/mymap/write">
-							<table>
-							  <tbody>
-								<tr>
-								  <td><label for="title">제목</label><input type="text" id="title" name="title" /></td>
-								</tr>	
-								<tr>
-								  <td><label for="content">내용</label><textarea id="content" name="content" ></textarea></td>
-								</tr>
-								<tr>
-								  <td><label for="writer">작성자</label><input type="text" id="writer" name="writer" /></td>
-								<tr>
-								  <td><button type="submit">작성</button></td>
-								</tr>			
-							  </tbody>			
-							</table>
-						  </form>
-						</section>
-					</div>		
+
 				</main>
 				<footer id="footer">
 					<tiles:insertAttribute name="footer"/>

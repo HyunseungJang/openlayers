@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"  %>
 <!doctype html>
 <html>
 	<head>
@@ -18,98 +19,32 @@
 		
 		<!-- fontawesome icon -->
 		<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
+		
 		<title>MyMap</title>
 	</head>
 	<body class="d-flex h-100 text-center text-bg-dark">
 		<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 			<div class="container">
-			  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-			    <a href="/mymap" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-			      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-			      <span id="mainHeader" class="fs-4" style="color:white">XDWorld & OpenLayers Project</span>
-			    </a>
+			  	<header id="head">
+					<tiles:insertAttribute name="header"/>
+				</header>
 			
-			    <ul class="nav nav-pills">
-			      <li class="nav-item"><a href="/mymap" class="nav-link active" aria-current="page">Home</a></li>
-			      <li class="nav-item"><a href="/mymap/xdworld" class="nav-link">XDWorld</a></li>
-			      <li class="nav-item"><a href="/mymap/openlayers" class="nav-link">OpenLayers</a></li>
-			      <li class="nav-item"><a href="/mymap/list" class="nav-link">QnA</a></li>
-			      <li class="nav-item"><a href="/mymap/login" class="nav-link">Login</a></li>
-			    </ul>
-			  </header>
-			</div>
-			
-			<main class="px-3">
-				<div id="IconList" class="row">
-					<div id="xdwIcon" class="mapLoad col">
-						<i class="mapIcon fa-brands fa-unity fa-5x" onclick="goXdworld()" style="color:#C0C0C0"></i>
-						<button type="button" id="xdwBtn" class="mapBtn" onclick="goXdworld()">XDWorld</button>
+				<main class="px-3">
+					<div id="IconList" class="row">
+						<div id="xdwIcon" class="mapLoad col">
+							<i class="mapIcon fa-brands fa-unity fa-5x" onclick="goXdworld()" style="color:#C0C0C0"></i>
+							<button type="button" id="xdwBtn" class="mapBtn" onclick="goXdworld()">XDWorld</button>
+						</div>
+						<div id="olIcon" class="mapLoad col">
+							<i class="mapIcon fa-solid fa-layer-group fa-5x" onclick="goOpenLayers()" style="color:#C0C0C0"></i>
+							<button type="button" id="olBtn" class="mapBtn" onclick="goOpenLayers()">OpenLayers</button>
+						</div>
 					</div>
-					<div id="olIcon" class="mapLoad col">
-						<i class="mapIcon fa-solid fa-layer-group fa-5x" onclick="goOpenLayers()" style="color:#C0C0C0"></i>
-						<button type="button" id="olBtn" class="mapBtn" onclick="goOpenLayers()">OpenLayers</button>
-					</div>
-				</div>
-			</main>
+				</main>
 		
-			<div class="container">
-			  <footer class="py-5">
-			    <div class="row">
-			      <div class="col-6 col-md-2 mb-3">
-			        <h5>Section</h5>
-			        <ul class="nav flex-column">
-			          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-			          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-			          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-			          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-			          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-			        </ul>
-			      </div>
-			
-			      <div class="col-6 col-md-2 mb-3">
-			        <h5>Section</h5>
-			        <ul class="nav flex-column">
-			          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-			          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-			          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-			          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-			          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-			        </ul>
-			      </div>
-			
-			      <div class="col-6 col-md-2 mb-3">
-			        <h5>Section</h5>
-			        <ul class="nav flex-column">
-			          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-			          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-			          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-			          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-			          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-			        </ul>
-			      </div>
-			
-			      <div class="col-md-5 offset-md-1 mb-3">
-			        <form>
-			          <h5>Subscribe to our newsletter</h5>
-			          <p>Monthly digest of what's new and exciting from us.</p>
-			          <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-			            <label for="newsletter1" class="visually-hidden">Email address</label>
-			            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-			            <button class="btn btn-primary" type="button">Subscribe</button>
-			          </div>
-			        </form>
-			      </div>
-			    </div>
-			
-			    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-			      <p>&copy; 2023 hsj, Inc. All rights reserved.</p>
-			      <ul class="list-unstyled d-flex">
-			        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
-			        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
-			        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
-			      </ul>
-			    </div>
-			 </footer>
+				<footer id="footer">
+					<tiles:insertAttribute name="footer"/>
+				</footer>
 			</div>
 		</div>
 		

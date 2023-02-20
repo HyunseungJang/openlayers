@@ -14,7 +14,7 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		
 		
-		return "home";
+		return "home.tiles";
 	}
 
 }
