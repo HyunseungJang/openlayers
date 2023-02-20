@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="boardMapper">
 
-   <!-- 게시판 글 작성 -->
+   <!-- 게시물 작성 -->
    <insert id="insert">
    		INSERT INTO BOARD(TITLE, CONTENT, WRITER)
      				VALUES (#{title}, #{content}, #{writer});
@@ -30,5 +30,20 @@
 		 FROM BOARD
 		 WHERE BNO = #{bno}
 	</select>
+	
+	<!-- 게시물 수정 -->
+	    <update id="update" parameterType="com.egis.vo.BoardVO">
+		UPDATE BOARD
+		   SET TITLE    =   #{title},
+		   	   CONTENT  =   #{content}
+		 WHERE BNO = #{bno} 
+	</update>
+	
+	<!-- 게시물 삭제 -->
+	<delete id="delete" parameterType="int">
+		DELETE 
+		  FROM BOARD
+		 WHERE BNO = #{bno}
+	</delete>
 	
 </mapper>

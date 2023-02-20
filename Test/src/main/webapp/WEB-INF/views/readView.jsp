@@ -21,6 +21,31 @@
 		<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 		<title>MyMap</title>
 	</head>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var formObj = $("form[name='readForm']");
+			
+			// 수정 
+			$(".update_btn").on("click", function(){
+				formObj.attr("action", "/updateView");
+				formObj.attr("method", "get");
+				formObj.submit();				
+			})
+			
+			// 삭제
+			$(".delete_btn").on("click", function(){
+				formObj.attr("action", "/delete");
+				formObj.attr("method", "post");
+				formObj.submit();
+			})
+			
+			// 취소
+			$(".list_btn").on("click", function(){
+				
+				location.href = "/mymap/list";
+			})
+		})
+	</script>
 	<body class="d-flex h-100 text-center text-bg-dark">
 		<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 			<div class="container">
@@ -29,38 +54,39 @@
 				</header>
 				<main>
 					<section id="container">
-						<form role="form" method="post">
+						<form name="readForm" role="form" method="post">
+							<input type="hidden" id="bno" name="bno" value="${read.bno}" />
+						</form>
 							<table>
 								<tbody>
 									<tr>
 										<td>
-											<label for="bno">글 번호</label><input type="text" id="bno" name="bno" value="${read.bno}"/>
+											<label for="title">제목</label><input type="text" id="title" name="title" value="${read.title}" readonly="readonly" />
 										</td>
 									</tr>	
 									<tr>
 										<td>
-											<label for="title">제목</label><input type="text" id="title" name="title" value="${read.title}"/>
-										</td>
-									</tr>	
-									<tr>
-										<td>
-											<label for="content">내용</label><textarea id="content" name="content"><c:out value="${read.content}" /></textarea>
+											<label for="content">내용</label><textarea id="content" name="content" readonly="readonly"><c:out value="${read.content}" /></textarea>
 										</td>
 									</tr>
 									<tr>
 										<td>
-											<label for="writer">작성자</label><input type="text" id="writer" name="writer" value="${read.writer}" />
+											<label for="writer">작성자</label><input type="text" id="writer" name="writer" value="${read.writer}"  readonly="readonly"/>
 										</td>
 									</tr>
 									<tr>
 										<td>
 											<label for="regdate">작성날짜</label>
-											<fmt:formatDate value="${read.regdate}" pattern="yyyy-MM-dd"/>					
+											<fmt:formatDate value="${read.regdate}" pattern="yyyy-MM-dd" />					
 										</td>
 									</tr>		
 								</tbody>			
 							</table>
-						</form>
+							<div>
+								<button type="submit" class="update_btn">수정</button>
+								<button type="submit" class="delete_btn">삭제</button>
+								<button type="submit" class="list_btn">목록</button>	
+							</div>
 					</section>
 				</main>
 				<footer id="footer">
@@ -73,6 +99,7 @@
 		
 		<!-- JS -->
 		<script src="resources/js/page.js"></script>
+		<script src="resources/js/board/board.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 	</body>
