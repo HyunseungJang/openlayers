@@ -8,6 +8,9 @@ function goXdworld() {
 function goOpenLayers() {
 	location.href="openlayers";
 }
+function goReadView(bno) {
+	location.href="/mymap/readView?bno=" + bno;
+}
 
 
 

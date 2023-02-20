@@ -61,7 +61,7 @@
 					                </thead>
 					                <tbody>
 					                <c:forEach items="${list}" var = "list">
-										<tr>
+										<tr onclick="goReadView(${list.bno})">
 											<td><c:out value="${list.bno}" /></td>
 											<td><c:out value="${list.title}" /></td>
 											<td><c:out value="${list.writer}" /></td>
