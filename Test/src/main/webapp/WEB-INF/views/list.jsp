@@ -48,7 +48,7 @@
 					</header>
 					<!-- board list area -->
 				    <div id="board-list" class="container">
-				    	<a href="/mymap/writeView">글쓰기</a>
+				    	<button id="writeBtn" class="btn btn-outline-light btn-sm" onclick="goWriteView()">글쓰기</button>
      					<section id="container" >
 							<form role="form" method="post" action="/write">
 					            <table class="board-table">

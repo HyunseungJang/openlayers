@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"  %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -12,6 +13,7 @@
 		
 		<!-- CSS -->
 		<link rel="stylesheet" href="resources/css/xdworld.css"/>
+		<link rel="stylesheet" href="resources/css/list.css"/>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 		
 		<!-- favicon.ico -->
@@ -21,31 +23,6 @@
 		<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 		<title>MyMap</title>
 	</head>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			var formObj = $("form[name='readForm']");
-			
-			// 수정 
-			$(".update_btn").on("click", function(){
-				formObj.attr("action", "/updateView");
-				formObj.attr("method", "get");
-				formObj.submit();				
-			})
-			
-			// 삭제
-			$(".delete_btn").on("click", function(){
-				formObj.attr("action", "/delete");
-				formObj.attr("method", "post");
-				formObj.submit();
-			})
-			
-			// 취소
-			$(".list_btn").on("click", function(){
-				
-				location.href = "/mymap/list";
-			})
-		})
-	</script>
 	<body class="d-flex h-100 text-center text-bg-dark">
 		<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 			<div class="container">
@@ -53,39 +30,26 @@
 					<tiles:insertAttribute name="header"/>
 				</header>
 				<main>
+					<h1> QnA </h1>
 					<section id="container">
 						<form name="readForm" role="form" method="post">
 							<input type="hidden" id="bno" name="bno" value="${read.bno}" />
 						</form>
-							<table>
-								<tbody>
-									<tr>
-										<td>
-											<label for="title">제목</label><input type="text" id="title" name="title" value="${read.title}" readonly="readonly" />
-										</td>
-									</tr>	
-									<tr>
-										<td>
-											<label for="content">내용</label><textarea id="content" name="content" readonly="readonly"><c:out value="${read.content}" /></textarea>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label for="writer">작성자</label><input type="text" id="writer" name="writer" value="${read.writer}"  readonly="readonly"/>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label for="regdate">작성날짜</label>
-											<fmt:formatDate value="${read.regdate}" pattern="yyyy-MM-dd" />					
-										</td>
-									</tr>		
-								</tbody>			
-							</table>
+							<div class="input-group mb-3">
+							  <span class="input-group-text">제목</span>
+							  <input class="form-control" id="title" name="title" aria-label="With textarea" value="${read.title}" readonly="readonly">
+							  <span class="input-group-text">작성자</span>
+							  <input type="text" class="form-control" id="writer" name="writer" aria-label="Username" aria-describedby="basic-addon1" value="${read.writer}" readonly="readonly">
+							  <span class="input-group-text">작성일</span>
+							  <textarea class="form-control" id="regdate" readonly="readonly"><fmt:formatDate value="${read.regdate}" pattern="yyyy-MM-dd" /></textarea>
+							</div>
+							<div class="mb-3">
+							  <textarea class="form-control" id="content" name="content" rows="15" placeholder="내용을 입력해 주세요" readonly="readonly"><c:out value="${read.content}" /></textarea>
+							</div>
 							<div>
-								<button type="submit" class="update_btn">수정</button>
-								<button type="submit" class="delete_btn">삭제</button>
-								<button type="submit" class="list_btn">목록</button>	
+								<button type="submit" class="btn btn-outline-light" id="update_btn">수정</button>
+								<button type="submit" class="btn btn-outline-light" id="delete_btn">삭제</button>
+								<button type="submit" class="btn btn-outline-light" id="list_btn">목록</button>
 							</div>
 					</section>
 				</main>

@@ -11,6 +11,7 @@
 		
 		<!-- CSS -->
 		<link rel="stylesheet" href="resources/css/xdworld.css"/>
+		<link rel="stylesheet" href="resources/css/list.css"/>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 		
 		<!-- favicon.ico -->
@@ -29,21 +30,16 @@
 						<h1> QnA </h1>
 						<section id="container">
 						  <form role="form" method="post" action="/mymap/write">
-							<table>
-							  <tbody>
-								<tr>
-								  <td><label for="title">제목</label><input type="text" id="title" name="title" /></td>
-								</tr>	
-								<tr>
-								  <td><label for="content">내용</label><textarea id="content" name="content" ></textarea></td>
-								</tr>
-								<tr>
-								  <td><label for="writer">작성자</label><input type="text" id="writer" name="writer" /></td>
-								<tr>
-								  <td><button type="submit">작성</button></td>
-								</tr>			
-							  </tbody>			
-							</table>
+							<div class="input-group mb-3">
+							  <span class="input-group-text">제목</span>
+							  <textarea class="form-control" id="title" name="title" aria-label="With textarea"></textarea>
+							  <span class="input-group-text">작성자</span>
+							  <input type="text" class="form-control" id="writer" name="writer" aria-label="Username" aria-describedby="basic-addon1">
+							</div>
+							<div class="mb-3">
+							  <textarea class="form-control" id="content" name="content" rows="15" placeholder="내용을 입력해 주세요"></textarea>
+							</div>
+						    <button class="btn btn-outline-light" type="submit">작성</button>
 						  </form>
 						</section>
 					</div>		

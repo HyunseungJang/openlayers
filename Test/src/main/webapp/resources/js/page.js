@@ -11,6 +11,9 @@ function goOpenLayers() {
 function goReadView(bno) {
 	location.href="/mymap/readView?bno=" + bno;
 }
+function goWriteView() {
+	location.href="/mymap/writeView";
+}
 
 
 

@@ -7,6 +7,24 @@ header {
     margin-bottom: 2rem;
 }
 
+#writeBtn {
+	float: right;
+    margin-bottom: 0.5rem;
+}
+
+textarea#title {
+    height: 1rem;
+}
+
+section#container {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+textarea#regdate {
+    height: 1rem;
+}
+
 /* table start */
 table {
   border-collapse: collapse;
