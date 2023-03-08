@@ -35,11 +35,12 @@
 
 ## :iphone: **Screenshots**
 
-* App
+* XDWorld
 ![2](https://user-images.githubusercontent.com/112330490/223588195-4a1d5cdb-4b88-4b0f-bd62-e6e8eedcace6.png)
 
-* Web
+* OpenLayers
 ![6](https://user-images.githubusercontent.com/112330490/223589414-809ba315-45f6-47bf-8d2d-b28754eedad5.png)
+![7](https://user-images.githubusercontent.com/112330490/223592440-703df24d-ce8e-4be0-adf1-6f4f8744a73f.png)
 
-* 기타
+* 게시판
 ![7](https://user-images.githubusercontent.com/112330490/223589450-e00df9d9-8167-4116-98a8-5d76af3765cf.png)
