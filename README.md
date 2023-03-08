@@ -11,7 +11,7 @@
 * 기타 tool : QGIS(데이터 가공)
 * API : XDWorld, OpenLayers, VWorld
 
-## :rocket: **기능**
+## :rocket: **Features**
 
 :heavy_check_mark: XDWorld
 
